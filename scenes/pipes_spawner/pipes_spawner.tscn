@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://y8qfdiav86df"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u83f1"]
+
+[node name="PipesSpawner" type="Node2D"]
+
+[node name="PipesRemover" type="Area2D" parent="."]
+position = Vector2(-100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipesRemover"]
+shape = SubResource("RectangleShape2D_u83f1")
+
+[node name="PipesSpawnPoint" type="Node2D" parent="."]
+position = Vector2(390, 0)
