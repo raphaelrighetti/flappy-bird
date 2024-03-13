@@ -10,6 +10,7 @@ size = Vector2(52, 320)
 script = ExtResource("1_k82oq")
 
 [node name="PipeTop" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PipeTop"]
 position = Vector2(0, -220)
@@ -21,6 +22,7 @@ position = Vector2(0, -220)
 shape = SubResource("RectangleShape2D_g7khc")
 
 [node name="PipeBottom" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PipeBottom"]
 position = Vector2(0, 220)
@@ -29,3 +31,6 @@ texture = ExtResource("1_s2l4r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom"]
 position = Vector2(0, 220)
 shape = SubResource("RectangleShape2D_g7khc")
+
+[connection signal="body_entered" from="PipeTop" to="." method="_on_pipe_top_body_entered"]
+[connection signal="body_entered" from="PipeBottom" to="." method="_on_pipe_bottom_body_entered"]

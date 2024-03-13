@@ -1,12 +1,13 @@
 class_name Player
 extends CharacterBody2D
 
+signal game_over
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED: float = 300.0
 const JUMP_VELOCITY: float = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
@@ -16,14 +17,9 @@ func _ready():
 
 	position = get_viewport_rect().size / 2
 
-	# checking if it works correctly
-	# print("Viewport Rect: ", get_viewport_rect().size / 2)
-	# print("Player Position: ", position)
-
 func _physics_process(delta: float):
 	# physics
 	apply_gravity(delta)
-	# handle_movement()
 	handle_jump()
 
 	# animation
@@ -35,9 +31,6 @@ func _physics_process(delta: float):
 
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
-
-func handle_movement() -> void:
-	velocity.x = SPEED
 
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump"):
@@ -52,3 +45,8 @@ func handle_rotation() -> void:
 
 	if rot_from_grav > 90:
 		rotation_degrees = 90
+
+# public methods
+
+func emit_game_over() -> void:
+	game_over.emit()
