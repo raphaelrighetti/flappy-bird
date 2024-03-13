@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://y8qfdiav86df"]
+[gd_scene load_steps=2 format=3 uid="uid://y8qfdiav86df"]
 
 [ext_resource type="Script" path="res://scenes/pipes_spawner/pipes_spawner.gd" id="1_fydls"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u83f1"]
-size = Vector2(51, 532)
 
 [node name="PipesSpawner" type="Node2D"]
 script = ExtResource("1_fydls")
@@ -11,16 +8,7 @@ script = ExtResource("1_fydls")
 [node name="PipesSpawnPoint" type="Node2D" parent="."]
 position = Vector2(390, 0)
 
-[node name="PipesRemover" type="Area2D" parent="."]
-position = Vector2(-100, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PipesRemover"]
-position = Vector2(-15.5, 256)
-shape = SubResource("RectangleShape2D_u83f1")
-
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
 
-[connection signal="area_entered" from="PipesRemover" to="." method="_on_pipes_remover_area_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

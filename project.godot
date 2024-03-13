@@ -36,8 +36,12 @@ jump={
 [layer_names]
 
 2d_physics/layer_1="Player"
-2d_physics/layer_2="Pipes"
+2d_physics/layer_2="Objects"
 2d_physics/layer_3="Areas"
+
+[physics]
+
+2d/default_gravity=1200.0
 
 [rendering]
 

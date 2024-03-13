@@ -6,7 +6,7 @@ signal game_over
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED: float = 300.0
-const JUMP_VELOCITY: float = -400.0
+const JUMP_VELOCITY: float = -325.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 

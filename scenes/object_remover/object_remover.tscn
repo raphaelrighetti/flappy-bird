@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6rf8ag2xv1so"]
+
+[ext_resource type="Script" path="res://scenes/object_remover/object_remover.gd" id="1_nkhgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak8tf"]
+size = Vector2(29, 514)
+
+[node name="ObjectRemover" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_nkhgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 255)
+shape = SubResource("RectangleShape2D_ak8tf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
