@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://da65gvb4plaus"]
+[gd_scene load_steps=10 format=3 uid="uid://da65gvb4plaus"]
 
 [ext_resource type="PackedScene" uid="uid://bd7chb1yew2sf" path="res://scenes/player/player.tscn" id="1_602fh"]
 [ext_resource type="PackedScene" uid="uid://bku8o62pxul4s" path="res://scenes/ui/background/background.tscn" id="1_ie0bo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkpdlmi3mu585" path="res://scenes/ground/ground.tscn" id="5_trtkm"]
 [ext_resource type="PackedScene" uid="uid://bay63majgow3l" path="res://scenes/ui/game_over_screen/game_over_screen.tscn" id="7_gmp17"]
 [ext_resource type="PackedScene" uid="uid://b7ukofy74esm5" path="res://scenes/ui/points_counter/points_counter.tscn" id="8_dpb16"]
+[ext_resource type="PackedScene" uid="uid://b6d6d5syf5mhh" path="res://scenes/ui/initial_screen/initial_screen.tscn" id="9_fx3sf"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_xu6kk")
@@ -46,6 +47,9 @@ visible = false
 layout_mode = 1
 
 [node name="PointsCounter" parent="UI" instance=ExtResource("8_dpb16")]
+layout_mode = 1
+
+[node name="InitialScreen" parent="UI" instance=ExtResource("9_fx3sf")]
 layout_mode = 1
 
 [connection signal="add_point" from="Player" to="UI/PointsCounter" method="_on_player_add_point"]
