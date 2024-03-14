@@ -15,6 +15,12 @@ func _ready():
 
   update_text_label_text()
 
+func _process(_delta):
+  if MyGlobal.game_running:
+    visible = true
+  else:
+    visible = false
+
 func update_text_label_text() -> void:
   text_label.text = "[center]" + points_to_img_string() + "[/center]"
 
