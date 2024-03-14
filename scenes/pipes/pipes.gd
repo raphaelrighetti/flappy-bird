@@ -13,3 +13,6 @@ func _on_pipe_top_body_entered(body: Player):
 
 func _on_pipe_bottom_body_entered(body: Player):
   body.emit_game_over()
+
+func _on_point_detector_body_entered(body: Player):
+  body.emit_add_point()

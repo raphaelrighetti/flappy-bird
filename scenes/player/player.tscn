@@ -35,6 +35,3 @@ frame_progress = 0.384214
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_75ksb")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 2

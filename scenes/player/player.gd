@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+signal add_point
 signal game_over
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -10,6 +11,8 @@ const JUMP_VELOCITY: float = -325.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var dead: bool = false
+
 func _ready():
 	# change this so that it starts playing only when the player start the game
 	# (can be done with a signal)
@@ -18,16 +21,14 @@ func _ready():
 	position = get_viewport_rect().size / 2
 
 func _physics_process(delta: float):
-	# physics
+	check_game_over()
+
 	apply_gravity(delta)
 	handle_jump()
 
-	# animation
 	handle_rotation()
 
 	move_and_slide()
-
-# physics
 
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
@@ -36,17 +37,25 @@ func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 
-# animation
-
 func handle_rotation() -> void:
-	var rot_from_grav: int = int(velocity.y / 10)
+	var rot_from_grav = int(velocity.y / 10)
 
-	rotation_degrees = rot_from_grav
+	if not dead:
+		rotation_degrees = rot_from_grav
 
 	if rot_from_grav > 90:
 		rotation_degrees = 90
 
-# public methods
+func check_game_over() -> void:
+	if is_on_floor():
+		emit_game_over()
+
+# public
+
+func emit_add_point() -> void:
+	add_point.emit()
 
 func emit_game_over() -> void:
+	dead = true
+
 	game_over.emit()
