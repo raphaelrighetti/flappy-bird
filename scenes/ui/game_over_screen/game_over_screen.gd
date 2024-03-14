@@ -14,5 +14,5 @@ func check_restart_level() -> void:
 
 func _on_player_game_over():
 	visible = true
-	Engine.time_scale = 0
+	MyGlobal.object_speed = 0
 	can_restart = true

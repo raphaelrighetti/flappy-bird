@@ -9,15 +9,10 @@ signal game_over
 const SPEED: float = 300.0
 const JUMP_VELOCITY: float = -325.0
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var can_play: bool = false
 var dead: bool = false
 
 func _ready():
-	# change this so that it starts playing only when the player start the game
-	# (can be done with a signal)
-	animated_sprite.play('default')
-
 	position = get_viewport_rect().size / 2
 
 func _physics_process(delta: float):
@@ -26,12 +21,20 @@ func _physics_process(delta: float):
 	apply_gravity(delta)
 	handle_jump()
 
+	handle_animation()
 	handle_rotation()
 
 	move_and_slide()
 
 func apply_gravity(delta: float) -> void:
-	velocity.y += gravity * delta
+	velocity.y += MyGlobal.gravity * delta
+
+func handle_animation() -> void:
+	if not dead and not animated_sprite.is_playing():
+		animated_sprite.play("default")
+	if dead:
+		animated_sprite.stop()
+		animated_sprite.frame = 1
 
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump"):

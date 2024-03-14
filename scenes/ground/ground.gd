@@ -10,14 +10,12 @@ const SPEED: float = 150.0
 func _ready():
   texture_width = sprite.texture.get_size().x * scale.x
 
-  print(texture_width)
-
 func _process(delta):
   handle_movement(delta)
   attempt_reposition()
 
 func handle_movement(delta) -> void:
-  position.x -= SPEED * delta
+  position.x -= MyGlobal.object_speed * delta
 
 func attempt_reposition() -> void:
   if position.x < - texture_width:
