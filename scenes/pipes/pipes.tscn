@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://8adndl5gfqv7"]
+[gd_scene load_steps=6 format=3 uid="uid://8adndl5gfqv7"]
 
 [ext_resource type="Script" path="res://scenes/pipes/pipes.gd" id="1_k82oq"]
 [ext_resource type="Texture2D" uid="uid://cqs5k8frd7xhd" path="res://assets/sprites/pipe-green.png" id="1_s2l4r"]
+[ext_resource type="AudioStream" uid="uid://bhv8lrm4028nf" path="res://assets/audio/point.wav" id="3_e15rc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7khc"]
 size = Vector2(52, 320)
@@ -42,6 +43,9 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointDetector"]
 shape = SubResource("RectangleShape2D_c5u74")
+
+[node name="GetPointAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e15rc")
 
 [connection signal="body_entered" from="PipeTop" to="." method="_on_pipe_top_body_entered"]
 [connection signal="body_entered" from="PipeBottom" to="." method="_on_pipe_bottom_body_entered"]

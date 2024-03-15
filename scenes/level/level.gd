@@ -15,8 +15,6 @@ func _process(_delta):
 
 func start_game() -> void:
 	MyGlobal.object_speed = MyGlobal.NORMAL_OBJECT_SPEED
-	MyGlobal.gravity = MyGlobal.NORMAL_GRAVITY
-	MyGlobal.can_spawn_pipes = true
 	MyGlobal.game_running = true
 	MyGlobal.game_over = false
 	MyGlobal.final_score = 0
