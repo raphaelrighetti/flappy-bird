@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bku8o62pxul4s"]
+[gd_scene load_steps=3 format=3 uid="uid://bku8o62pxul4s"]
 
 [ext_resource type="Texture2D" uid="uid://bsj6e8sj1d7ue" path="res://assets/sprites/background-day.png" id="1_hmrqv"]
+[ext_resource type="Script" path="res://scenes/ui/background/background.gd" id="2_v41by"]
 
 [node name="Background" type="TextureRect"]
 anchors_preset = 8
@@ -15,3 +16,4 @@ offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hmrqv")
+script = ExtResource("2_v41by")
