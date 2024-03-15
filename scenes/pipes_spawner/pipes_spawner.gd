@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var spawn_point: Node2D = $PipesSpawnPoint
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var difficulty_change_audio: AudioStreamPlayer = $DifficultyChangeAudio
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var pipes_scene: PackedScene = preload ("res://scenes/pipes/pipes.tscn")
@@ -40,6 +41,8 @@ func attempt_change_difficulty() -> void:
       spawn_timer.wait_time -= WAIT_TIME_SUM
     if MyGlobal.object_speed < MAX_OBJECT_SPEED:
       MyGlobal.object_speed += OBJECT_SPEED_SUM
+
+    difficulty_change_audio.play()
     MyGlobal.other_theme = not MyGlobal.other_theme
     points_counter = MyGlobal.final_score
 
