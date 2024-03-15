@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Flappy Bird"
+config/description="A clone of the Flappy Bird game to practice my game dev skills (and hopefully finally finish a project)."
 run/main_scene="res://scenes/level/level.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/favicon.png"
 
 [autoload]
 
