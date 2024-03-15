@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbup3ay5dvt5o"]
+
+[ext_resource type="Script" path="res://scenes/ui/points_counter/points_counter_text.gd" id="1_b4kg4"]
+
+[node name="PointsCounterText" type="RichTextLabel"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 30.0
+offset_right = 124.0
+offset_bottom = 70.0
+grow_horizontal = 2
+bbcode_enabled = true
+script = ExtResource("1_b4kg4")

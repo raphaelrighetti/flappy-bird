@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bay63majgow3l"]
+[gd_scene load_steps=7 format=3 uid="uid://bay63majgow3l"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_over_screen/game_over_screen.gd" id="1_ogojo"]
 [ext_resource type="Texture2D" uid="uid://cgcongwkxjdl4" path="res://assets/sprites/gameover.png" id="2_duy0k"]
+[ext_resource type="PackedScene" uid="uid://dbup3ay5dvt5o" path="res://scenes/ui/points_counter/points_counter_text.tscn" id="3_i8rot"]
+[ext_resource type="Texture2D" uid="uid://npbj7aibt7xk" path="res://assets/sprites/final-score-background.png" id="4_7xtc6"]
+[ext_resource type="FontFile" uid="uid://rp6sbaeeli16" path="res://assets/fonts/joystix/joystix monospace.otf" id="4_v2mqf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7gst"]
+font = ExtResource("4_v2mqf")
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -14,15 +20,79 @@ script = ExtResource("1_ogojo")
 
 [node name="GameOverImage" type="TextureRect" parent="."]
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 30.0
+offset_right = 96.0
+offset_bottom = 72.0
+grow_horizontal = 2
+texture = ExtResource("2_duy0k")
+
+[node name="FinalScoreBackground" type="NinePatchRect" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -21.0
-offset_right = 96.0
-offset_bottom = 21.0
+offset_left = -114.0
+offset_top = -136.0
+offset_right = 114.0
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_duy0k")
+texture = ExtResource("4_7xtc6")
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="ScoreLabel" type="Label" parent="FinalScoreBackground"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_top = 39.0
+offset_right = 59.0
+offset_bottom = 68.0
+grow_horizontal = 2
+text = "SCORE"
+label_settings = SubResource("LabelSettings_h7gst")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" parent="FinalScoreBackground" instance=ExtResource("3_i8rot")]
+layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -67.0
+offset_bottom = -27.0
+grow_vertical = 2
+
+[node name="BestScoreLabel" type="Label" parent="FinalScoreBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -2.5
+offset_right = 59.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "BEST"
+label_settings = SubResource("LabelSettings_h7gst")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestScoreText" parent="FinalScoreBackground" instance=ExtResource("3_i8rot")]
+layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 27.0
+offset_bottom = 67.0
+grow_vertical = 2

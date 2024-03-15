@@ -17,7 +17,6 @@ func _process(_delta):
   spawn()
 
 func spawn() -> void:
-  print(MyGlobal.can_spawn_pipes)
   if MyGlobal.can_spawn_pipes:
     var pipes = pipes_scene.instantiate() as Pipes
     pipes.position = spawn_point.position
@@ -27,5 +26,4 @@ func spawn() -> void:
     spawn_timer.start()
 
 func _on_spawn_timer_timeout():
-  print("been here")
   MyGlobal.can_spawn_pipes = true
